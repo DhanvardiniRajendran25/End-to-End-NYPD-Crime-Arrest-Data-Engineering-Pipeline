@@ -84,13 +84,16 @@ Provide a **single source of truth** for crime & arrest analytics across **time,
 
 ## 🧩 Project Workflow
 
+<img width="468" height="860" alt="image" src="https://github.com/user-attachments/assets/93465606-35ac-4e1b-8732-1a027eb644df" />
+
+
 ### 1. Data Profiling
 - Used Python (yDataProfiling) to identify missing values, inconsistencies, and datatype errors.
-- Found issues like missing **LAW_CAT_CD**, inconsistent age group formats, and geolocation gaps:contentReference[oaicite:0]{index=0}.
+- Found issues like missing **LAW_CAT_CD**, inconsistent age group formats, and geolocation gaps
 
 ### 2. Dimensional Modeling
 - Designed a **Star Schema** in ER Studio:
-  - Fact: `FACT_ARRESTS` (one record per arrest event, grain = arrest key):contentReference[oaicite:1]{index=1}  
+  - Fact: `FACT_ARRESTS` (one record per arrest event, grain = arrest key)
   - Dimensions:
     - `DIM_PRECINCT`
     - `DIM_BOROUGH`
@@ -104,7 +107,7 @@ Provide a **single source of truth** for crime & arrest analytics across **time,
   - Standardize borough codes
   - Handle missing values
   - Normalize age, race, and gender attributes
-  - Convert dates into usable formats (day/week/month/year):contentReference[oaicite:2]{index=2}  
+  - Convert dates into usable formats (day/week/month/year)
 
 ### 4. Pipeline Orchestration
 - Implemented **Azure Data Factory** pipeline:
@@ -116,24 +119,57 @@ Provide a **single source of truth** for crime & arrest analytics across **time,
 - Snowflake stores:
   - Arrest fact table
   - Dimension tables
-  - Supports analytical queries on trends, geography, and demographics:contentReference[oaicite:3]{index=3}  
+  - Supports analytical queries on trends, geography, and demographics
 
 ### 6. Visualization
 - Built **interactive dashboards** (Power BI/Tableau) to analyze:
-  - Time-based patterns (daily, weekly, monthly, yearly trends):contentReference[oaicite:4]{index=4}  
+  - Time-based patterns (daily, weekly, monthly, yearly trends)
   - Crime types and top offenses  
   - Borough and precinct-level hotspots  
-  - Demographic distribution by age, race, and gender:contentReference[oaicite:5]{index=5}  
+  - Demographic distribution by age, race, and gender
 
 ---
 
 ## 📊 Key Insights
-- Peak month: **August 2024 (22,957 arrests)**:contentReference[oaicite:6]{index=6}  
-- Top Crimes: **Assault 3 & Related, Petit Larceny, Felony Assault, Dangerous Drugs**:contentReference[oaicite:7]{index=7}  
-- Borough with highest arrests: **Brooklyn (72,325 arrests)**:contentReference[oaicite:8]{index=8}  
-- Age group with most arrests: **25–44 years (152,034 arrests)**:contentReference[oaicite:9]{index=9}  
-- Race distribution: **Black (122,049), White Hispanic (69,131), Black Hispanic (26,549)**:contentReference[oaicite:10]{index=10}  
-- High-crime precinct: **Precinct 14 (9,887 arrests)**:contentReference[oaicite:11]{index=11}  
+- Peak month: **August 2024 (22,957 arrests)**
+- Top Crimes: **Assault 3 & Related, Petit Larceny, Felony Assault, Dangerous Drugs**
+- Borough with highest arrests: **Brooklyn (72,325 arrests)**
+- Age group with most arrests: **25–44 years (152,034 arrests)**
+- Race distribution: **Black (122,049), White Hispanic (69,131), Black Hispanic (26,549)** 
+- High-crime precinct: **Precinct 14 (9,887 arrests)**
 
 ---
 
+## 🔒 Data Quality & Governance
+
+* **Profiling**: Automated HTML report via **ydata-profiling**
+* **Standardization**: Alteryx rules for codes, date parsing, demographic buckets
+* **SCD**: `DIM_LOCATION` / `DIM_PERPETRATOR` can be modeled as SCD2 (validity date ranges)
+* **Validation**: DBeaver SQL checks for referential integrity, nulls, and conformance
+
+---
+
+## 🧪 KPIs & Analytics
+
+* Arrests by **month/weekday/hour**
+* Heatmaps by **borough / precinct**
+* Distribution by **offense, law category**
+* Demographics by **age group, race, sex**
+* Rolling trends and seasonality indicators
+
+---
+
+## 📜 Notes & Attributions
+
+* The NYPD dataset is **continuously updated**; metrics will shift by date.
+* Please refer to NYC Open Data licensing for permitted reuse.
+
+---
+
+## 👩‍💻 Author
+
+**Dhanvardini Rajendran**
+GitHub: [@DhanvardiniRajendran25](https://github.com/DhanvardiniRajendran25)
+(Feel free to add email/LinkedIn)
+
+---
