@@ -170,6 +170,5 @@ Provide a **single source of truth** for crime & arrest analytics across **time,
 
 **Dhanvardini Rajendran**
 GitHub: [@DhanvardiniRajendran25](https://github.com/DhanvardiniRajendran25)
-(Feel free to add email/LinkedIn)
 
 ---
